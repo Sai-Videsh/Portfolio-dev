@@ -1,0 +1,73 @@
+.back-to-top {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 60px;
+  height: 60px;
+  background: var(--accent-primary);
+  color: #000000;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  z-index: 1000;
+  font-family: 'Space Mono', monospace;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+}
+
+.back-to-top::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid var(--accent-primary);
+  border-left: 2px solid var(--accent-primary);
+}
+
+.back-to-top::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid var(--accent-primary);
+  border-right: 2px solid var(--accent-primary);
+}
+
+.back-to-top:hover {
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+}
+
+.back-to-top svg {
+  font-size: 1.2rem;
+}
+
+.back-to-top-text {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+  .back-to-top {
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .back-to-top svg {
+    font-size: 1rem;
+  }
+
+  .back-to-top-text {
+    font-size: 0.5rem;
+  }
+}

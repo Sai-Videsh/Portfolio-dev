@@ -1,0 +1,7 @@
+<!-- Placeholder for Resume PDF -->
+<!-- 
+  To add your resume:
+  1. Create or export your resume as a PDF file named "resume.pdf"
+  2. Place it in the public folder: public/resume.pdf
+  3. The download button will automatically work
+-->

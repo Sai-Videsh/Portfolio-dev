@@ -1,0 +1,334 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-tertiary: #141414;
+  --text-primary: #ffffff;
+  --text-secondary: #888888;
+  --accent-primary: #ff0000;
+  --accent-secondary: #cc0000;
+  --accent-gradient: linear-gradient(135deg, #ff0000, #cc0000);
+  --glass-bg: rgba(255, 0, 0, 0.02);
+  --glass-border: rgba(255, 0, 0, 0.2);
+}
+
+body {
+  margin: 0;
+  font-family: 'Space Mono', 'Courier New', monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  position: relative;
+  cursor: none;
+}
+
+* {
+  cursor: none;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background-image: 
+    linear-gradient(rgba(255, 0, 0, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 0, 0, 0.08) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: 0 0, 0 0;
+  pointer-events: none;
+  z-index: 0;
+  animation: moveGrid 20s linear infinite;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255, 0, 0, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 0, 0, 0.02) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(0, 0, 0, 0.4) 0%, transparent 40%),
+    linear-gradient(to bottom, transparent 50%, rgba(255, 0, 0, 0.02) 51%);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 4px;
+  pointer-events: none;
+  z-index: 1;
+  animation: scanline 8s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes moveGrid {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-secondary);
+}
+
+/* Utility Classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  min-height: 100vh;
+  padding: 100px 0;
+  position: relative;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 60px;
+  color: var(--accent-primary);
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 2px;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.section-title::before {
+  content: '> ';
+  color: var(--accent-primary);
+}
+
+.section-title::after {
+  content: '_';
+  animation: blink 1s infinite;
+  margin-left: 5px;
+}
+
+.section-title.typewriter {
+  position: relative;
+  color: rgba(40, 40, 40, 0.8);
+  white-space: nowrap;
+  margin: 0 auto 60px;
+}
+
+.section-title.typewriter::before {
+  content: '> ';
+  color: rgba(40, 40, 40, 0.8);
+}
+
+.section-title.typewriter::after {
+  display: none;
+}
+
+.section-title.typewriter .typed-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--accent-primary);
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid var(--accent-primary);
+  animation: 
+    typewriter 2s steps(40) 0.3s forwards,
+    blink-border 0.75s step-end infinite;
+  width: 0;
+}
+
+.section-title.typewriter .typed-text::before {
+  content: '> ';
+  color: var(--accent-primary);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes typewriter {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes blink-border {
+  0%, 50% {
+    border-color: var(--accent-primary);
+  }
+  51%, 100% {
+    border-color: transparent;
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes glitchText {
+  0% {
+    text-shadow: 2px 2px 0 rgba(255, 0, 0, 0.5), -2px -2px 0 rgba(0, 0, 0, 0.5);
+  }
+  25% {
+    text-shadow: -2px 2px 0 rgba(255, 0, 0, 0.5), 2px -2px 0 rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    text-shadow: 2px -2px 0 rgba(255, 0, 0, 0.5), -2px 2px 0 rgba(0, 0, 0, 0.5);
+  }
+  75% {
+    text-shadow: -2px -2px 0 rgba(255, 0, 0, 0.5), 2px 2px 0 rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    text-shadow: 2px 2px 0 rgba(255, 0, 0, 0.5), -2px -2px 0 rgba(0, 0, 0, 0.5);
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.4), 0 0 30px rgba(255, 0, 0, 0.2);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .section {
+    padding: 60px 0;
+  }
+}

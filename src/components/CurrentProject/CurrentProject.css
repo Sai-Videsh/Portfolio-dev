@@ -1,0 +1,211 @@
+.current-project {
+  background: var(--bg-secondary);
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+.current-project::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background-image: 
+    repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(255, 0, 0, 0.02) 30px, rgba(255, 0, 0, 0.02) 31px),
+    repeating-linear-gradient(-45deg, transparent, transparent 30px, rgba(255, 0, 0, 0.02) 30px, rgba(255, 0, 0, 0.02) 31px);
+  animation: moveCrossHatch 25s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes moveCrossHatch {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+
+.current-project-content {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.current-project-content::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 2px;
+  background: var(--accent-primary);
+  margin: 30px auto 0;
+  animation: glow 2s ease-in-out infinite;
+}
+
+.current-project-badge {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-primary);
+  color: #000000;
+  font-size: 2.5rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.current-project-title {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  font-family: 'Space Mono', monospace;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.current-project-name {
+  font-size: 5rem;
+  font-weight: 400;
+  color: var(--accent-primary);
+  margin-bottom: 30px;
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 5px;
+  position: relative;
+  display: inline-block;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+}
+
+.current-project-name::before {
+  content: '[';
+  color: var(--text-secondary);
+  margin-right: 15px;
+}
+
+.current-project-name::after {
+  content: ']';
+  color: var(--text-secondary);
+  margin-left: 15px;
+}
+
+.current-project-description {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 60px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.current-project-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.feature-card {
+  padding: 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.feature-card::before,
+.feature-card::after {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border: 2px solid var(--accent-primary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.feature-card::before {
+  top: 5px;
+  left: 5px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.feature-card::after {
+  bottom: 5px;
+  right: 5px;
+  border-left: none;
+  border-top: none;
+}
+
+.feature-card:hover::before,
+.feature-card:hover::after {
+  opacity: 1;
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  color: var(--accent-primary);
+  margin-bottom: 20px;
+}
+
+.feature-title {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 1px;
+}
+
+.feature-description {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.current-project-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 25px;
+  background: rgba(255, 0, 0, 0.05);
+  border: 1px solid var(--accent-primary);
+  color: var(--accent-primary);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  background: var(--accent-primary);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+}
+
+@media (max-width: 768px) {
+  .current-project-name {
+    font-size: 3rem;
+    letter-spacing: 3px;
+  }
+
+  .current-project-features {
+    grid-template-columns: 1fr;
+  }
+}
