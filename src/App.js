@@ -9,12 +9,17 @@ import Skills from './components/Skills/Skills';
 import CurrentProject from './components/CurrentProject/CurrentProject';
 import Projects from './components/Projects/Projects';
 import Achievements from './components/Achievements/Achievements';
+import Content from './components/Content/Content';
+import Recommendations from './components/Recommendations/Recommendations';
 import Contact from './components/Contact/Contact';
 import BackToTop from './components/BackToTop/BackToTop';
 import ParticlesBackground from './components/ParticlesBackground/ParticlesBackground';
+import Loader from './components/Loader/Loader';
+import SVBot from './components/SVBot/SVBot';
 
 function App() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     let rafId;
@@ -37,6 +42,10 @@ function App() {
     };
   }, []);
 
+  if (loading) {
+    return <Loader onLoadComplete={() => setLoading(false)} />;
+  }
+
   return (
     <div className="App">
       <ParticlesBackground />
@@ -56,7 +65,10 @@ function App() {
       <CurrentProject />
       <Projects />
       <Achievements />
+      <Content />
+      <Recommendations />
       <Contact />
+      <SVBot />
       <BackToTop />
     </div>
   );

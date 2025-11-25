@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FaRocket, FaCode, FaCogs, FaLightbulb } from 'react-icons/fa';
+import { FaRocket, FaCode, FaCogs, FaLightbulb,FaSearch, FaLayerGroup, FaBolt } from 'react-icons/fa';
 import './CurrentProject.css';
 
 const CurrentProject = () => {
@@ -11,22 +11,22 @@ const CurrentProject = () => {
   });
 
   const features = [
-    {
-      icon: <FaCode />,
-      title: 'Smart Technology',
-      description: 'Built with cutting-edge tech stack',
-    },
-    {
-      icon: <FaCogs />,
-      title: 'Scalable',
-      description: 'Designed for growth and performance',
-    },
-    {
-      icon: <FaLightbulb />,
-      title: 'Innovative',
-      description: 'Solving real-world problems',
-    },
-  ];
+  {
+    icon: <FaSearch className="text-xl md:text-2xl" />,
+    title: 'Unified Search',
+    description: 'One query across multiple e-commerce stores',
+  },
+  {
+    icon: <FaLayerGroup className="text-xl md:text-2xl" />,
+    title: 'Aggregated Catalog',
+    description: 'Merges product data into a single clean view',
+  },
+  {
+    icon: <FaBolt className="text-xl md:text-2xl" />,
+    title: 'Smart Comparison',
+    description: 'Highlights prices, specs, and deals instantly',
+  },
+];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -90,9 +90,8 @@ const CurrentProject = () => {
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.5, duration: 0.6 }}
           >
-            A revolutionary software solution that transforms how businesses operate.
-            DropIQ combines intelligence with simplicity to deliver powerful results.
-          </motion.p>
+           A unified tool that lets you search for a product once and instantly see results from multiple e-commerce stores. It gathers each product’s price, details, and buy-now link into one place so users don’t need to check every site manually. Built to simplify comparison shopping and save time.
+           </motion.p>
 
           <motion.div
             className="current-project-features"

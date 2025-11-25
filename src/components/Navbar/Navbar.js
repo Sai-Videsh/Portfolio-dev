@@ -26,7 +26,10 @@ const Navbar = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const navItems = [
@@ -37,6 +40,8 @@ const Navbar = () => {
     { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
     { name: 'Achievements', href: '#achievements' },
+    { name: 'Content', href: '#content' },
+    { name: 'Recommendations', href: '#recommendations' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -48,14 +53,6 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="container nav-container">
-        <motion.div
-          className="logo"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <span className="gradient-text">&lt;Dev/&gt;</span>
-        </motion.div>
-
         <ul className="nav-links">
           {navItems.map((item, index) => (
             <motion.li
@@ -73,6 +70,15 @@ const Navbar = () => {
             </motion.li>
           ))}
         </ul>
+
+        <motion.div
+          className="logo"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          >
+          <span className="gradient-text">&lt;Build/&gt;</span>
+          <img src="/profile.png" alt="Sai Videsh" className="logo-photo" />
+        </motion.div>
       </div>
     </motion.nav>
   );

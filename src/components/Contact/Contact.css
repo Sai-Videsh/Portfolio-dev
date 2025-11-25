@@ -226,6 +226,17 @@ textarea.form-input {
   margin-top: 10px;
 }
 
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: rgba(255, 0, 0, 0.3);
+}
+
+.submit-btn:disabled:hover {
+  transform: scale(1);
+  box-shadow: none;
+}
+
 .form-status {
   margin-top: 20px;
   padding: 15px;

@@ -13,57 +13,57 @@ const Achievements = () => {
   const certificates = [
     {
       id: 1,
-      title: 'AWS Certified Developer - Associate',
-      issuer: 'Amazon Web Services',
+      title: 'Java Programming',
+      issuer: 'NPTEL',
       date: '2024',
       icon: <FaCertificate />,
-      link: '/certificates/aws-cert.pdf', // Replace with your certificate link
+      link: `https://drive.google.com/file/d/${process.env.REACT_APP_CERT_ACHIEVEMENT_1}/view`,
     },
     {
       id: 2,
-      title: 'Meta Frontend Developer Professional',
-      issuer: 'Meta (Facebook)',
-      date: '2023',
+      title: 'Spoken Tutorial - IIT Bombay',
+      issuer: 'IIT Bombay',
+      date: '2024',
       icon: <FaCertificate />,
-      link: '/certificates/meta-cert.pdf', // Replace with your certificate link
+      link: `https://drive.google.com/file/d/${process.env.REACT_APP_CERT_ACHIEVEMENT_2}/view`,
     },
     {
       id: 3,
-      title: 'Full Stack Web Development',
-      issuer: 'Udemy',
-      date: '2023',
+      title: 'Job Simulation - Deloitte',
+      issuer: 'Forage',
+      date: '2025',
       icon: <FaCertificate />,
-      link: '/certificates/fullstack-cert.pdf', // Replace with your certificate link
+      link: `https://drive.google.com/file/d/${process.env.REACT_APP_CERT_ACHIEVEMENT_3}/view`,
     },
-    {
-      id: 4,
-      title: 'JavaScript Algorithms and Data Structures',
-      issuer: 'freeCodeCamp',
-      date: '2022',
-      icon: <FaCertificate />,
-      link: '/certificates/javascript-cert.pdf', // Replace with your certificate link
-    },
+    // {
+    //   id: 4,
+    //   title: 'JavaScript Algorithms and Data Structures',
+    //   issuer: 'freeCodeCamp',
+    //   date: '2022',
+    //   icon: <FaCertificate />,
+    //   link: `https://drive.google.com/file/d/${process.env.REACT_APP_CERT_ACHIEVEMENT_4}/view`,
+    // },
   ];
 
   const achievements = [
     {
       id: 1,
-      title: 'Hackathon Winner',
-      description: 'First place in University Tech Hackathon 2024',
-      icon: <FaTrophy />,
-    },
-    {
-      id: 2,
       title: 'Open Source Contributor',
-      description: '100+ contributions to open source projects',
+      description: '10+ contributions to projects in IEEE SoC',
       icon: <FaStar />,
     },
     {
-      id: 3,
-      title: 'Best Project Award',
-      description: 'Outstanding capstone project recognition',
-      icon: <FaMedal />,
+      id: 2,
+      title: 'SIH 2025 - Institute Level',
+      description: 'Select in Smart India Hackathon 2025 at institute level',
+      icon: <FaTrophy />,
     },
+    // {
+    //   id: 3,
+    //   title: 'Best Project Award',
+    //   description: 'Outstanding capstone project recognition',
+    //   icon: <FaMedal />,
+    // },
   ];
 
   const containerVariants = {

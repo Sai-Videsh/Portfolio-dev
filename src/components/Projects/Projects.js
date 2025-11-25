@@ -15,67 +15,69 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'E-Commerce Platform',
-      tagline: 'Full-stack shopping experience',
-      description: 'A full-stack e-commerce platform with payment integration, admin dashboard, and real-time inventory management.',
+      title: 'DropIQ',
+      tagline: 'Unified E-Commerce Search Engine',
+      description: 'Built a unified scraper pipeline across 5+ e-commerce sites using rotating proxies, reverse APIs, headless browsers, and HTML parsing, achieving 92% product-page coverage.',
       image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop',
-      tags: ['React', 'Node.js', 'MongoDB'],
+      tags: ['Next', 'Web Scraping', 'APIs'],
       category: 'fullstack',
-      github: 'https://github.com',
+      github: 'https://github.com/Sai-Videsh/DropiQ',
+      liveLink: 'https://dropiq01.vercel.app/',
     },
     {
       id: 2,
-      title: 'Social Media App',
-      tagline: 'Connect and share instantly',
-      description: 'Real-time social media application with chat functionality, posts, likes, and user authentication.',
-      image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=600&fit=crop',
-      tags: ['React', 'Firebase', 'Tailwind'],
-      category: 'frontend',
-      github: 'https://github.com',
+      title: 'Loomio',
+      tagline: 'Community & Task Management',
+      description: 'A full-stack task and community management system supporting 3 user roles, 5+ core modules, and real-time activity handling. It enables task assignment, attendance tracking, and contribution scoring across distributed communities.',
+      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop',
+      tags: ['Full Stack', 'Real-time', 'Community'],
+      category: 'fullstack',
+      github: 'https://github.com/Sai-Videsh/Loomio',
+      liveLink: 'https://loomio-cbtm.vercel.app/',
     },
     {
       id: 3,
-      title: 'Task Management System',
-      tagline: 'Organize your workflow',
-      description: 'Collaborative task management tool with drag-and-drop, team collaboration, and progress tracking.',
-      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop',
-      tags: ['TypeScript', 'React', 'Express'],
-      category: 'fullstack',
-      github: 'https://github.com',
+      title: 'Anomaly Detection using FRAPE',
+      tagline: 'Machine Learning Project',
+      description: 'Advanced anomaly detection system leveraging FRAPE algorithm for identifying unusual patterns in data.',
+      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop',
+      tags: ['Python', 'ML', 'FRAPE'],
+      category: 'ml',
+      github: 'https://github.com/Sai-Videsh/Cybersecurity_Sys_log_detection',
     },
     {
       id: 4,
-      title: 'Weather Dashboard',
-      tagline: 'Real-time weather insights',
-      description: 'Beautiful weather application with real-time data, forecasts, and interactive maps.',
-      image: 'https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&h=600&fit=crop',
-      tags: ['React', 'API', 'CSS3'],
-      category: 'frontend',
-      github: 'https://github.com',
+      title: 'Co-Work spaces Near Me',
+      tagline: 'Location-based Discovery',
+      description: 'Platform to find and book co-working spaces based on user location with real-time availability.',
+      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop',
+      tags: ['React', 'Maps API', 'Location'],
+      category: 'fullstack',
+      github: 'https://github.com/Sai-Videsh/Co-Working-Spaces',
     },
     {
       id: 5,
-      title: 'RESTful API',
-      tagline: 'Scalable backend solution',
-      description: 'Scalable REST API with authentication, rate limiting, and comprehensive documentation.',
-      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop',
-      tags: ['Node.js', 'Express', 'PostgreSQL'],
-      category: 'backend',
-      github: 'https://github.com',
+      title: 'Hostel Tracker',
+      tagline: 'Management System',
+      description: 'Comprehensive hostel management system for tracking students, rooms, attendance, and facilities.',
+      image: 'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=800&h=600&fit=crop',
+      tags: ['Full Stack', 'Database', 'Management'],
+      category: 'fullstack',
+      github: 'https://github.com/Sai-Videsh/hostel_management_system',
     },
     {
       id: 6,
-      title: 'Portfolio Website',
-      tagline: 'Showcase your work beautifully',
-      description: 'Modern, responsive portfolio with animations, dark mode, and smooth transitions.',
-      image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop',
-      tags: ['React', 'Framer Motion', 'CSS'],
-      category: 'frontend',
-      github: 'https://github.com',
+      title: 'AI Contracts Generator',
+      tagline: 'AI-Powered Legal Docs',
+      description: 'Automated contract generation system using AI to create customized legal documents based on user inputs.',
+      image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=600&fit=crop',
+      tags: ['AI', 'NLP', 'Automation'],
+      category: 'ml',
+      github: 'https://github.com/Sai-Videsh/ai-contract---proposal',
     },
   ];
 
-  const categories = ['all', 'fullstack', 'frontend', 'backend'];
+  const categories = ['all', 'fullstack', 'ml'];
 
   const filteredProjects = filter === 'all' 
     ? projects 
@@ -142,7 +144,7 @@ const Projects = () => {
           {filteredProjects.map((project) => (
             <motion.a
               key={project.id}
-              href={project.github}
+              href={project.liveLink || project.github}
               target="_blank"
               rel="noopener noreferrer"
               className="project-card glass-card"
@@ -152,7 +154,14 @@ const Projects = () => {
             >
               <div className="project-image">
                 <img src={project.image} alt={project.title} />
-                <div className="project-overlay"></div>
+                <div className="project-overlay">
+                  {project.liveLink && project.liveLink !== '#' && (
+                    <div className="live-indicator">
+                      <span className="live-dot"></span>
+                      Live
+                    </div>
+                  )}
+                </div>
               </div>
               <div className="project-content">
                 <h3 className="project-title">{project.title}</h3>

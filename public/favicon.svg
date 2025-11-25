@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Circular background -->
+  <circle cx="256" cy="256" r="256" fill="#000000"/>
+  
+  <!-- Closing tag symbol </> in monospace style -->
+  <g transform="translate(256, 256)">
+    <!-- Less-than bracket < (medium size) -->
+    <path d="M -90 -100 L -160 0 L -90 100 L -70 90 L -130 0 L -70 -90 Z" 
+          fill="#ff0000" stroke="#ff0000" stroke-width="5">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
+    </path>
+    
+    <!-- Forward slash / (larger, dominant) -->
+    <rect x="-12" y="-180" width="24" height="360" fill="#ff0000" rx="6"
+          transform="rotate(12)">
+      <animate attributeName="opacity" values="1;0.8;1" dur="1.5s" repeatCount="indefinite"/>
+    </rect>
+    
+    <!-- Greater-than bracket > (medium size) -->
+    <path d="M 90 -100 L 160 0 L 90 100 L 70 90 L 130 0 L 70 -90 Z" 
+          fill="#ff0000" stroke="#ff0000" stroke-width="5">
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
+    </path>
+    
+    <!-- Subtle glow effect -->
+    <circle cx="0" cy="0" r="220" fill="#ff0000" opacity="0.08">
+      <animate attributeName="r" values="200;220;200" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.05;0.12;0.05" dur="3s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>

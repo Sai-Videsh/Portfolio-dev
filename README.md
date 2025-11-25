@@ -22,12 +22,47 @@ A modern, dark-themed developer portfolio built with React.js featuring smooth a
 npm install
 ```
 
-2. Start the development server:
+2. Set up environment variables:
+   - Copy `.env.example` to `.env`:
+     ```bash
+     cp .env.example .env
+     ```
+   - Update the `.env` file with your actual values:
+     - Replace `YOUR_FILE_ID_1` etc. with your Google Drive certificate file IDs
+     - Set `REACT_APP_API_URL` to your backend API URL (default: http://localhost:5000)
+     - Verify your contact information (email, phone, location)
+     - Check your social media URLs (GitHub, LinkedIn, LeetCode)
+   - Add your resume PDF file to the `public` folder as `resume.pdf`
+
+3. Start the development server:
 ```bash
 npm start
 ```
 
-3. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+4. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+## Environment Variables
+
+This project uses environment variables to manage sensitive data and configuration. All variables are prefixed with `REACT_APP_` to be accessible in the React app.
+
+### Certificate Links
+- `REACT_APP_CERT_EXPERIENCE_1/2/3`: Google Drive file IDs for experience certificates
+- `REACT_APP_CERT_ACHIEVEMENT_1/2/3/4/5`: Google Drive file IDs for achievement certificates
+
+### API Configuration
+- `REACT_APP_API_URL`: Backend API URL for contact form
+
+### Contact Information
+- `REACT_APP_EMAIL`: Your email address
+- `REACT_APP_PHONE`: Your phone number
+- `REACT_APP_LOCATION`: Your location
+
+### Social Links
+- `REACT_APP_GITHUB`: Your GitHub profile URL
+- `REACT_APP_LINKEDIN`: Your LinkedIn profile URL
+- `REACT_APP_LEETCODE`: Your LeetCode profile URL
+
+**Important:** Never commit your `.env` file to Git. The `.gitignore` file is configured to exclude it along with PDF files and certificates.
 
 ## Customization
 
@@ -41,12 +76,19 @@ Update the content in the component files to personalize:
 - Projects section with your portfolio work
 - Contact section with your information
 
+### Uploading Your Certificates to Google Drive
+
+1. Upload your certificates to Google Drive
+2. Right-click each file → Get link → Set to "Anyone with the link can view"
+3. Copy the file ID from the URL (e.g., in `https://drive.google.com/file/d/FILE_ID_HERE/view`, copy `FILE_ID_HERE`)
+4. Update the corresponding environment variables in `.env` with these file IDs
+
 ### Adding Your Resume
 
 1. Export your resume as a PDF file
 2. Name it `resume.pdf`
 3. Place it in the `public` folder
-4. The download buttons will automatically work
+4. The download button will automatically work (already configured in `.gitignore` to prevent committing)
 
 ## Technologies Used
 

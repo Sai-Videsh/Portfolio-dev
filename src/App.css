@@ -75,6 +75,7 @@
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  animation: float-slow 3s ease-in-out infinite;
 }
 
 .glass-card::before {
@@ -103,6 +104,7 @@
 .btn-primary {
   position: relative;
   padding: 12px 35px;
+  animation: float-slow 3s ease-in-out infinite;
   font-size: 0.9rem;
   font-weight: 400;
   font-family: 'Space Mono', monospace;

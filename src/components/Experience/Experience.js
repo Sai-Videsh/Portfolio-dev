@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FaBriefcase, FaCalendar } from 'react-icons/fa';
+import { FaBriefcase, FaCalendar, FaCertificate } from 'react-icons/fa';
 import './Experience.css';
 
 const Experience = () => {
@@ -13,36 +13,36 @@ const Experience = () => {
   const experiences = [
     {
       id: 1,
-      title: 'Senior Full Stack Developer',
-      company: 'Tech Company Inc.',
-      period: '2023 - Present',
+      title: 'Technical Lead',
+      company: 'Airath Innovations Pvt. Ltd.',
+      period: 'Sep 2025 - Present',
       description: [
-        'Led development of scalable web applications using React and Node.js',
-        'Implemented CI/CD pipelines reducing deployment time by 60%',
-        'Mentored junior developers and conducted code reviews',
-      ],
+        'Researched 7+ competitor platforms, benchmarking product flow, UI systems, and market gaps.',
+        'Designed and built the complete landing page and dashboard layouts(in progress) with one teammate, covering 15+ core screens.',
+],
+      certificate: `https://drive.google.com/file/d/${process.env.REACT_APP_CERT_EXPERIENCE_1}/view`,
     },
     {
       id: 2,
-      title: 'Full Stack Developer',
-      company: 'Digital Solutions Ltd.',
-      period: '2021 - 2023',
+      title: 'Products and Operations Intern',
+      company: 'Sarvagya Nirakar',
+      period: 'Apr 2024 - Sep 2024',
       description: [
-        'Built and maintained multiple client-facing applications',
-        'Optimized database queries improving performance by 40%',
-        'Collaborated with design team to implement responsive UIs',
+        'Led cross-functional team of 8+ contributors as Product Manager and Developer; delivered 2 functionality modules and 2 UI wireframes for the project \'VAKYA SANGHAM - A Regional Language App\'.',
+        'Directed HR & Public Executive operations by coordinating 10+ community interactions, managing 2 recruitment cycles, Creating 3+ project pitch decks and supporting outreach that increased engagement by 23%.',
       ],
+      certificate: `https://drive.google.com/file/d/${process.env.REACT_APP_CERT_EXPERIENCE_2}/view`,
     },
     {
       id: 3,
-      title: 'Junior Developer',
-      company: 'StartUp Innovations',
-      period: '2020 - 2021',
+      title: 'AI & Cloud Technologies Virtual Internship by IBM SkillsBuild ',
+      company: 'Edunet Foundation, AICTE approved',
+      period: 'May 2025 - June 2025',
       description: [
-        'Developed features for core product using React and Express',
-        'Fixed bugs and improved application stability',
-        'Participated in agile development processes',
-      ],
+        'Delivered all required modules and project milestones (5+ total), maintaining 100% completion accuracy across the internship timeline.',
+'Built SKILLITH, an end to end AI-powered Learning Path Recommender that guides students with practical roadmaps and skill based progression (1 week timeline).'
+ ],
+      certificate: `https://drive.google.com/file/d/${process.env.REACT_APP_CERT_EXPERIENCE_3}/view`,
     },
   ];
 
@@ -109,6 +109,18 @@ const Experience = () => {
                   <li key={idx}>{item}</li>
                 ))}
               </ul>
+              {exp.certificate && (
+                <motion.a
+                  href={exp.certificate}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="view-certificate-btn"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <FaCertificate /> View Certificate
+                </motion.a>
+              )}
             </motion.div>
           ))}
         </motion.div>

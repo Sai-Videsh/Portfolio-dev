@@ -18,6 +18,7 @@ const Contact = () => {
   });
 
   const [formStatus, setFormStatus] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -26,34 +27,56 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add your form submission logic here
-    setFormStatus('Message sent successfully! 🚀');
-    setTimeout(() => {
-      setFormStatus('');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 3000);
+    setIsSubmitting(true);
+    setFormStatus('');
+
+    try {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setFormStatus('✅ ' + data.message);
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setFormStatus('❌ ' + data.message);
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+      // setFormStatus('❌ Failed to send message. Please try emailing directly at saividesh29@gmail.com');
+      setFormStatus('Sorry, backend is not deployed yet. Reach me out directly at saividesh29@gmail.com');
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setFormStatus(''), 5000);
+    }
   };
 
   const contactInfo = [
     {
       icon: <FaEnvelope />,
       title: 'Email',
-      value: 'your.email@example.com',
-      link: 'mailto:your.email@example.com',
+      value: process.env.REACT_APP_EMAIL,
+      link: `mailto:${process.env.REACT_APP_EMAIL}`,
     },
     {
       icon: <FaPhone />,
       title: 'Phone',
-      value: '+1 234 567 8900',
-      link: 'tel:+12345678900',
+      value: process.env.REACT_APP_PHONE,
+      link: `tel:${process.env.REACT_APP_PHONE?.replace(/\s/g, '') || ''}`,
     },
     {
       icon: <FaMapMarkerAlt />,
       title: 'Location',
-      value: 'Your City, Country',
-      link: '#',
+      value: process.env.REACT_APP_LOCATION,
+      link: 'https://www.google.com/maps/place/Vidhyaranyapura,+Bengaluru,+Karnataka,+India',
     },
   ];
 
@@ -113,6 +136,8 @@ const Contact = () => {
                 <motion.a
                   key={info.title}
                   href={info.link}
+                  target={info.title === 'Location' ? '_blank' : undefined}
+                  rel={info.title === 'Location' ? 'noopener noreferrer' : undefined}
                   className="contact-item glass-card"
                   variants={itemVariants}
                   whileHover={{ scale: 1.05, x: 10 }}
@@ -182,8 +207,9 @@ const Contact = () => {
                 className="btn-primary submit-btn"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
+                disabled={isSubmitting}
               >
-                <span>Send Message</span>
+                <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
                 <FaPaperPlane />
               </motion.button>
 
@@ -206,8 +232,8 @@ const Contact = () => {
           animate={inView ? { opacity: 1 } : {}}
           transition={{ delay: 0.8, duration: 0.6 }}
         >
-          <p>&copy; 2024 Your Name. All rights reserved.</p>
-          <p className="gradient-text">Built with React & Framer Motion</p>
+          <p>&copy; 2025 Sai Videsh. All rights reserved.</p>
+          <p className="gradient-text">Built with curiosity and caffeine</p>
         </motion.footer>
       </div>
     </section>

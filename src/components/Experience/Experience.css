@@ -161,6 +161,33 @@
   font-family: 'Space Mono', monospace;
 }
 
+.view-certificate-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 10px 25px;
+  background: transparent;
+  border: 2px solid var(--accent-primary);
+  color: var(--accent-primary);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.9rem;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.view-certificate-btn:hover {
+  background: var(--accent-primary);
+  color: #000000;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+}
+
+.view-certificate-btn svg {
+  font-size: 1.1rem;
+}
+
 @media (max-width: 768px) {
   .experience-header {
     flex-direction: column;
@@ -168,5 +195,10 @@
 
   .experience-title {
     font-size: 1.3rem;
+  }
+
+  .view-certificate-btn {
+    width: 100%;
+    justify-content: center;
   }
 }

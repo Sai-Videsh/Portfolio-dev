@@ -1,0 +1,128 @@
+.recommendations {
+  background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.recommendations::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 40px,
+    rgba(255, 0, 0, 0.02) 40px,
+    rgba(255, 0, 0, 0.02) 41px
+  );
+  animation: moveHorizontal 20s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes moveHorizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.recommendations-content {
+  max-width: 800px;
+  margin: 60px auto 0;
+  position: relative;
+  z-index: 1;
+}
+
+.linkedin-recommendations {
+  text-align: center;
+  padding: 60px 50px;
+  position: relative;
+  overflow: hidden;
+}
+
+.linkedin-recommendations::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+}
+
+.linkedin-icon-wrapper {
+  margin-bottom: 30px;
+}
+
+.linkedin-icon {
+  font-size: 5rem;
+  color: var(--accent-primary);
+  animation: float-slow 5s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.4));
+}
+
+.linkedin-recommendations h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 1px;
+}
+
+.recommendations-description {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.linkedin-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 35px;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.quote-decoration {
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  font-size: 4rem;
+  color: var(--accent-primary);
+  opacity: 0.1;
+  transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+  .linkedin-recommendations {
+    padding: 40px 30px;
+  }
+
+  .linkedin-icon {
+    font-size: 4rem;
+  }
+
+  .linkedin-recommendations h3 {
+    font-size: 1.5rem;
+  }
+
+  .recommendations-description {
+    font-size: 1rem;
+  }
+
+  .quote-decoration {
+    font-size: 3rem;
+    bottom: 15px;
+    right: 20px;
+  }
+}

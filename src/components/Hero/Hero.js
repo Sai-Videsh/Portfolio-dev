@@ -2,13 +2,15 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 import { FaGithub, FaLinkedin, FaTwitter, FaArrowDown, FaDownload } from 'react-icons/fa';
+import { SiLeetcode } from 'react-icons/si';
 import './Hero.css';
 
 const Hero = () => {
   const socialLinks = [
-    { icon: <FaGithub />, url: 'https://github.com', label: 'GitHub' },
-    { icon: <FaLinkedin />, url: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: <FaTwitter />, url: 'https://twitter.com', label: 'Twitter' },
+    { icon: <FaGithub />, url: process.env.REACT_APP_GITHUB, label: 'GitHub' },
+    { icon: <FaLinkedin />, url: process.env.REACT_APP_LINKEDIN, label: 'LinkedIn' },
+    { icon: <SiLeetcode />, url: process.env.REACT_APP_LEETCODE, label: 'LeetCode' },
+    // { icon: <FaTwitter />, url: 'https://twitter.com', label: 'Twitter' },
   ];
 
   return (
@@ -26,19 +28,19 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            Hi, I'm <span className="gradient-text">Your Name</span>
+            Hi, I'm <span className="gradient-text">Sai Videsh</span>
           </motion.h1>
 
           <div className="hero-subtitle">
             <TypeAnimation
               sequence={[
+                'Building Solutions',
+                2000,
+                'Content Creator',
+                2000,
                 'Full Stack Developer',
                 2000,
-                'UI/UX Enthusiast',
-                2000,
-                'Problem Solver',
-                2000,
-                'Creative Coder',
+                'Freelancer',
                 2000,
               ]}
               wrapper="h2"
@@ -53,9 +55,9 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            I craft beautiful, responsive web experiences with modern technologies.
-            Turning ideas into elegant digital solutions.
-          </motion.p>
+            I blend experience across coding, design, content, and early product building, giving me a practical, multi-skill foundation.
+Now I’m building DropIQ and an AI-focused agency while learning agentic AI, RAG, and rapid MVP development.
+ </motion.p>
 
           <motion.div
             className="hero-buttons"
@@ -66,7 +68,7 @@ const Hero = () => {
             <a href="#projects" className="btn-primary">
               View My Work
             </a>
-            <a href="/resume.pdf" download className="btn-secondary">
+            <a href="/resume.pdf" download="Sai_Videsh_Resume.pdf" className="btn-secondary">
               <FaDownload /> Download Resume
             </a>
           </motion.div>
@@ -110,13 +112,13 @@ const Hero = () => {
               <span className="keyword">const</span> developer = {'{'}
             </span>
             <span className="code-line indent">
-              name: <span className="string">"Your Name"</span>,
+              name: <span className="string">"Sai Videsh"</span>,
             </span>
             <span className="code-line indent">
-              skills: <span className="string">["React", "Node.js"]</span>,
+              skills: <span className="string">["Python", "ML", "Web Dev"]</span>,
             </span>
             <span className="code-line indent">
-              passion: <span className="string">"Coding"</span>
+              passion: <span className="string">"Try-Learn-Refine"</span>
             </span>
             <span className="code-line">{'}'}</span>
           </div>

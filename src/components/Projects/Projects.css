@@ -197,6 +197,45 @@
   pointer-events: none;
 }
 
+.live-indicator {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid var(--accent-primary);
+  color: var(--accent-primary);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  font-weight: 600;
+  opacity: 1;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent-primary);
+  border-radius: 50%;
+  animation: livePulse 2s ease-in-out infinite;
+}
+
+@keyframes livePulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 5px var(--accent-primary);
+  }
+  50% {
+    opacity: 0.5;
+    box-shadow: 0 0 15px var(--accent-primary);
+  }
+}
+
 .project-overlay::after {
   content: '[ CLICK TO VIEW ]';
   color: var(--accent-primary);

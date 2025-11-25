@@ -2,6 +2,7 @@
 /node_modules
 /.pnp
 .pnp.js
+/server/node_modules
 
 # testing
 /coverage
@@ -15,6 +16,13 @@
 .env.development.local
 .env.test.local
 .env.production.local
+.env
+/server/.env
+
+# sensitive files
+/public/resume.pdf
+/public/certificates/*
+*.pdf
 
 npm-debug.log*
 yarn-debug.log*

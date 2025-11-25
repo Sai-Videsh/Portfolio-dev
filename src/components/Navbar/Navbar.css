@@ -41,7 +41,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 30px;
+  gap: 50px;
+  position: relative;
 }
 
 .logo {
@@ -52,6 +53,42 @@
   letter-spacing: 2px;
   flex-shrink: 0;
   z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: auto;
+  padding-right: 0px;
+}
+
+.logo-photo {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-primary);
+  object-fit: cover;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  filter: contrast(1.1);
+}
+
+.logo-photo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at top left, rgba(255, 0, 0, 0.3), transparent 50%),
+              radial-gradient(circle at bottom right, rgba(255, 0, 0, 0.3), transparent 50%);
+  pointer-events: none;
+}
+
+.logo:hover .logo-photo {
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+  border-color: #ff3333;
+  filter: contrast(1.2) brightness(1.05);
 }
 
 .nav-links {
@@ -61,31 +98,15 @@
   overflow-x: auto;
   overflow-y: hidden;
   flex: 1;
-  max-width: calc(100vw - 200px);
-  padding: 5px 0;
+  max-width: calc(100vw - 250px);
+  padding: 5px 0 2px 0;
   margin: 0;
-  scrollbar-width: thin;
-  scrollbar-color: var(--accent-primary) transparent;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .nav-links::-webkit-scrollbar {
-  height: 6px;
-}
-
-.nav-links::-webkit-scrollbar-track {
-  background: rgba(255, 0, 0, 0.05);
-  border-radius: 10px;
-  margin: 0 20px;
-}
-
-.nav-links::-webkit-scrollbar-thumb {
-  background: var(--accent-primary);
-  border-radius: 10px;
-  transition: background 0.3s ease;
-}
-
-.nav-links::-webkit-scrollbar-thumb:hover {
-  background: #cc0000;
+  display: none;
 }
 
 .nav-links li {
@@ -98,11 +119,12 @@
   font-weight: 400;
   font-size: 0.85rem;
   position: relative;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, padding-left 0.3s ease;
   display: inline-block;
   white-space: nowrap;
   font-family: 'Space Mono', monospace;
   letter-spacing: 0.5px;
+  padding-left: 0;
 }
 
 .nav-links li a::before {
@@ -114,6 +136,11 @@
 .nav-links li a:hover::before,
 .nav-links li a.active::before {
   opacity: 1;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  padding-left: 15px;
 }
 
 .nav-links li a::after {

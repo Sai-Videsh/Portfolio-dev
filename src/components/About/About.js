@@ -50,20 +50,31 @@ const About = () => {
         >
           <motion.div className="about-text" variants={itemVariants}>
             <motion.div
+              className="about-photo-card glass-card"
+              variants={itemVariants}
+              whileHover={{ scale: 1.02 }}
+            >
+              <div className="photo-container">
+                <img src="/profile.png" alt="Sai Videsh" className="about-photo" />
+                <div className="photo-corner photo-corner-tl"></div>
+                <div className="photo-corner photo-corner-tr"></div>
+                <div className="photo-corner photo-corner-bl"></div>
+                <div className="photo-corner photo-corner-br"></div>
+              </div>
+              <h3 className="gradient-text" style={{ marginTop: '20px', textAlign: 'center' }}>Sai Videsh</h3>
+              <p style={{ textAlign: 'center', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Emerging founder, Content Creator and Developer</p>
+            </motion.div>
+
+            <motion.div
               className="about-card glass-card"
+              variants={itemVariants}
               whileHover={{ scale: 1.02 }}
             >
               <h3 className="gradient-text">Who I Am</h3>
               <p>
-                I'm a passionate developer with a love for creating innovative web solutions.
-                With expertise in modern web technologies, I transform complex problems into
-                simple, beautiful, and intuitive designs.
+                I am Sai Videsh, someone who has explored many paths like coding, design, content, freelancing, and early startup attempts, picking up skills quickly and learning through direct trials. I’m not shaped by a single track but by the range of things I’ve tried, giving me a broad, practical understanding and a direction which I’m now sharpening it into mastery.
               </p>
-              <p>
-                My journey in development started with curiosity and has evolved into a
-                professional pursuit of excellence. I believe in writing clean, maintainable
-                code and staying updated with the latest industry trends.
-              </p>
+              
             </motion.div>
 
             <motion.div
@@ -72,17 +83,11 @@ const About = () => {
               whileHover={{ scale: 1.02 }}
             >
               <h3 className="gradient-text">What I Do</h3>
-              <p>
-                I specialize in building responsive web applications using cutting-edge
-                technologies. From frontend design to backend architecture, I handle the
-                full spectrum of web development.
+             <p>
+                 I'm currently building DropIQ, a unified search layer that collects product data from multiple e-commerce stores and presents it in one place. 
+                 I'm also running an Agency in which me with my team where We build AI-powered MVPs that learn from users and turn ideas into investor-ready products. 
+               Along with this, I am learning agentic AI, retrieval-augmented generation, and practical AI toolchains so I can build systems that automate tasks and speed up development.
               </p>
-              <ul className="about-list">
-                <li>🚀 Full Stack Web Development</li>
-                <li>🎨 UI/UX Design & Implementation</li>
-                <li>📱 Responsive & Mobile-First Design</li>
-                <li>⚡ Performance Optimization</li>
-              </ul>
             </motion.div>
           </motion.div>
 
@@ -91,7 +96,7 @@ const About = () => {
               className="stat-card glass-card"
               whileHover={{ scale: 1.05, rotate: 2 }}
             >
-              <div className="stat-number gradient-text">50+</div>
+              <div className="stat-number gradient-text">15+</div>
               <div className="stat-label">Projects Completed</div>
             </motion.div>
 
@@ -99,16 +104,32 @@ const About = () => {
               className="stat-card glass-card"
               whileHover={{ scale: 1.05, rotate: -2 }}
             >
-              <div className="stat-number gradient-text">3+</div>
-              <div className="stat-label">Years Experience</div>
+              <div className="stat-number gradient-text">7.8</div>
+              <div className="stat-label">CGPA</div>
             </motion.div>
 
             <motion.div
               className="stat-card glass-card"
               whileHover={{ scale: 1.05, rotate: 2 }}
             >
-              <div className="stat-number gradient-text">30+</div>
-              <div className="stat-label">Happy Clients</div>
+              <div className="stat-number gradient-text">7+</div>
+              <div className="stat-label">Certifications</div>
+            </motion.div>
+
+            <motion.div
+              className="stat-card glass-card"
+              whileHover={{ scale: 1.05, rotate: -2 }}
+            >
+              <div className="stat-number gradient-text">3+</div>
+              <div className="stat-label">Years Coding</div>
+            </motion.div>
+
+            <motion.div
+              className="stat-card glass-card"
+              whileHover={{ scale: 1.05, rotate: 2 }}
+            >
+              <div className="stat-number gradient-text">250+</div>
+              <div className="stat-label">GitHub Commits</div>
             </motion.div>
           </motion.div>
         </motion.div>
