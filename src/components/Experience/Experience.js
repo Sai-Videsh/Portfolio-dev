@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FaBriefcase, FaCalendar, FaCertificate } from 'react-icons/fa';
@@ -9,6 +9,15 @@ const Experience = () => {
     triggerOnce: true,
     threshold: 0.2,
   });
+
+  const [showPopup, setShowPopup] = useState(false);
+
+  const handleCertificateClick = (e, expId) => {
+    if (expId === 1) {
+      e.preventDefault();
+      setShowPopup(true);
+    }
+  };
 
   const experiences = [
     {
@@ -117,6 +126,7 @@ const Experience = () => {
                   className="view-certificate-btn"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={(e) => handleCertificateClick(e, exp.id)}
                 >
                   <FaCertificate /> View Certificate
                 </motion.a>
@@ -125,6 +135,22 @@ const Experience = () => {
           ))}
         </motion.div>
       </div>
+
+      {showPopup && (
+        <div className="certificate-popup-overlay" onClick={() => setShowPopup(false)}>
+          <motion.div 
+            className="certificate-popup"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.3 }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h3>Certificate Status</h3>
+            <p>I've done technical research for the hardware product, and built landing page and dashboard for them, however certificate will be received shortly</p>
+            <button className="popup-close-btn" onClick={() => setShowPopup(false)}>Got it!</button>
+          </motion.div>
+        </div>
+      )}
     </section>
   );
 };

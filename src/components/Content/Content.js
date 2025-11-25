@@ -16,7 +16,7 @@ const Content = () => {
       title: 'Technical Blog',
       description: 'Sharing insights on New Technological inventions, science behind existing ones and news related to entrepreneurship',
       icon: <FaBlog />,
-      link: '#', // Add your blog URL
+    //   link: '#', // Add your blog URL
       count: 'Coming Soon',
     },
     {
@@ -24,7 +24,7 @@ const Content = () => {
       title: 'YouTube Channel',
       description: 'Simple takes on business, finance, productivity science, and practical learning, Mainly for students exploring multiple things',
       icon: <FaYoutube />,
-      link: '#', // Add your YouTube channel URL
+    //   link: '#', // Add your YouTube channel URL
       count: 'Coming Soon',
     },
   ];

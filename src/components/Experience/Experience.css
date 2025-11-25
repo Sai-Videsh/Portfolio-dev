@@ -188,6 +188,78 @@
   font-size: 1.1rem;
 }
 
+/* Certificate Popup Styles */
+.certificate-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(5px);
+}
+
+.certificate-popup {
+  background: var(--bg-primary);
+  border: 2px solid var(--accent-primary);
+  padding: 40px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+  position: relative;
+}
+
+.certificate-popup::before {
+  content: '[ CERTIFICATE STATUS ]';
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  background: var(--bg-primary);
+  color: var(--accent-primary);
+  padding: 0 10px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+}
+
+.certificate-popup h3 {
+  font-family: 'Space Mono', monospace;
+  font-size: 1.5rem;
+  color: var(--accent-primary);
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.certificate-popup p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+.popup-close-btn {
+  width: 100%;
+  padding: 12px 30px;
+  background: transparent;
+  border: 2px solid var(--accent-primary);
+  color: var(--accent-primary);
+  font-family: 'Space Mono', monospace;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.popup-close-btn:hover {
+  background: var(--accent-primary);
+  color: #000000;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+}
+
 @media (max-width: 768px) {
   .experience-header {
     flex-direction: column;
@@ -200,5 +272,17 @@
   .view-certificate-btn {
     width: 100%;
     justify-content: center;
+  }
+
+  .certificate-popup {
+    padding: 30px 20px;
+  }
+
+  .certificate-popup h3 {
+    font-size: 1.2rem;
+  }
+
+  .certificate-popup p {
+    font-size: 0.95rem;
   }
 }
