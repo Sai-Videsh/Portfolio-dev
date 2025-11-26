@@ -104,13 +104,15 @@
 }
 
 .experience-title {
-  font-size: 1.5rem;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
   font-weight: 400;
   color: var(--accent-primary);
   margin-bottom: 5px;
   font-family: 'Space Mono', monospace;
   letter-spacing: 1px;
   position: relative;
+  word-wrap: break-word;
+  hyphens: none;
 }
 
 .experience-title::before {
@@ -124,10 +126,12 @@
 }
 
 .experience-company {
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
   color: var(--text-secondary);
   font-weight: 400;
   font-family: 'Space Mono', monospace;
+  word-wrap: break-word;
+  hyphens: none;
 }
 
 .experience-period {
@@ -263,10 +267,6 @@
 @media (max-width: 768px) {
   .experience-header {
     flex-direction: column;
-  }
-
-  .experience-title {
-    font-size: 1.3rem;
   }
 
   .view-certificate-btn {

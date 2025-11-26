@@ -111,7 +111,7 @@ const Projects = () => {
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.3 }}
         >
-          Featured Projects
+          Featured <span className="title-break">Projects</span>
           {inView && <span className="typed-text">Featured Projects</span>}
         </motion.h2>
 

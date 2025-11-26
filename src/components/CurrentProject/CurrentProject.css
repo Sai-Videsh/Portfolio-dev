@@ -60,13 +60,15 @@
 }
 
 .current-project-title {
-  font-size: 1.5rem;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
   color: var(--text-secondary);
   margin-bottom: 20px;
   font-family: 'Space Mono', monospace;
   font-weight: 400;
   letter-spacing: 2px;
   text-transform: uppercase;
+  word-wrap: break-word;
+  hyphens: none;
 }
 
 .current-project-name {

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaBars, FaTimes } from 'react-icons/fa';
 import './Navbar.css';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,6 +34,10 @@ const Navbar = () => {
     };
   }, []);
 
+  const handleLinkClick = () => {
+    setMobileMenuOpen(false);
+  };
+
   const navItems = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
@@ -53,7 +59,24 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="container nav-container">
-        <ul className="nav-links">
+        <button 
+          className="mobile-menu-toggle"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          {mobileMenuOpen ? <FaTimes /> : <FaBars />}
+        </button>
+
+        <motion.div
+          className="logo"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <span className="gradient-text">&lt;Build/&gt;</span>
+          <img src="/profile.png" alt="Sai Videsh" className="logo-photo" />
+        </motion.div>
+
+        <ul className={`nav-links ${mobileMenuOpen ? 'mobile-open' : ''}`}>
           {navItems.map((item, index) => (
             <motion.li
               key={item.name}
@@ -64,22 +87,26 @@ const Navbar = () => {
               <a
                 href={item.href}
                 className={activeSection === item.href.slice(1) ? 'active' : ''}
+                onClick={handleLinkClick}
               >
                 {item.name}
               </a>
             </motion.li>
           ))}
         </ul>
-
-        <motion.div
-          className="logo"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          >
-          <span className="gradient-text">&lt;Build/&gt;</span>
-          <img src="/profile.png" alt="Sai Videsh" className="logo-photo" />
-        </motion.div>
       </div>
+
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            className="mobile-menu-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setMobileMenuOpen(false)}
+          />
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 };

@@ -41,12 +41,14 @@
 }
 
 .subsection-title {
-  font-size: 2rem;
+  font-size: clamp(1.3rem, 3vw, 2rem);
   font-weight: 400;
   color: var(--text-primary);
   margin-bottom: 40px;
   font-family: 'Space Mono', monospace;
   letter-spacing: 2px;
+  word-wrap: break-word;
+  hyphens: none;
 }
 
 .terminal-bracket {

@@ -113,7 +113,7 @@ const Skills = () => {
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.3 }}
         >
-          Skills & Technologies
+          Skills <span className="title-break">&</span> Technologies
           {inView && <span className="typed-text">Skills & Technologies</span>}
         </motion.h2>
 

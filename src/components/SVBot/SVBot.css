@@ -491,13 +491,15 @@
 
   .bot-popup-card {
     bottom: 20px;
-    left: 90px;
-    max-width: calc(100% - 110px);
+    left: 20px;
+    right: 20px;
+    width: auto;
+    max-width: none;
+    padding: 30px 20px;
   }
 
-  .bot-popup-card {
-    padding: 30px 20px;
-    max-width: 90%;
+  .html-code-container {
+    padding: 20px 15px;
   }
 
   .bot-popup-title {
