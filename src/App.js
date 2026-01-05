@@ -14,12 +14,10 @@ import Recommendations from './components/Recommendations/Recommendations';
 import Contact from './components/Contact/Contact';
 import BackToTop from './components/BackToTop/BackToTop';
 import ParticlesBackground from './components/ParticlesBackground/ParticlesBackground';
-import Loader from './components/Loader/Loader';
 import SVBot from './components/SVBot/SVBot';
 
 function App() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     let rafId;
@@ -41,10 +39,6 @@ function App() {
       }
     };
   }, []);
-
-  if (loading) {
-    return <Loader onLoadComplete={() => setLoading(false)} />;
-  }
 
   return (
     <div className="App">

@@ -136,18 +136,6 @@ const Skills = () => {
                 {skill.icon}
               </div>
               <h3 className="skill-name">{skill.name}</h3>
-              <div className="skill-level-container">
-                <motion.div
-                  className="skill-level-bar"
-                  initial={{ width: 0 }}
-                  animate={inView ? { width: `${skill.level}%` } : { width: 0 }}
-                  transition={{ duration: 1, delay: index * 0.1 }}
-                  style={{
-                    background: `linear-gradient(90deg, ${skill.color}, transparent)`,
-                  }}
-                />
-              </div>
-              <span className="skill-percentage">{skill.level}%</span>
             </motion.div>
           ))}
         </motion.div>

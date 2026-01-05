@@ -22,7 +22,7 @@
 # sensitive files
 /public/resume.pdf
 /public/certificates/*
-*.pdf
+# *.pdf
 
 npm-debug.log*
 yarn-debug.log*

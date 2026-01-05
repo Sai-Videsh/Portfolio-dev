@@ -1,11 +1,76 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, useAnimation } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
-import { FaGithub, FaLinkedin, FaTwitter, FaArrowDown, FaDownload } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter, FaArrowDown, FaDownload, FaUndo } from 'react-icons/fa';
 import { SiLeetcode } from 'react-icons/si';
 import './Hero.css';
 
 const Hero = () => {
+  const [isDoubleClicked, setIsDoubleClicked] = useState(false);
+  const [fallingBricks, setFallingBricks] = useState([]);
+  const [hiddenElements, setHiddenElements] = useState([]);
+  const controls1 = useAnimation();
+  const controls2 = useAnimation();
+  const controls3 = useAnimation();
+  const controlsCode = useAnimation();
+
+  const handleDoubleClick = () => {
+    setIsDoubleClicked(true);
+  };
+
+  const createFallingBricks = (elementId, x, y, width, height) => {
+    const brickSize = 20;
+    const cols = Math.ceil(width / brickSize);
+    const rows = Math.ceil(height / brickSize);
+    const newBricks = [];
+
+    for (let row = 0; row < rows; row++) {
+      for (let col = 0; col < cols; col++) {
+        newBricks.push({
+          id: `${elementId}-${row}-${col}`,
+          x: x + col * brickSize,
+          y: y + row * brickSize,
+          size: brickSize,
+          rotation: Math.random() * 360,
+          delay: Math.random() * 0.2,
+        });
+      }
+    }
+
+    setFallingBricks(prev => [...prev, ...newBricks]);
+    setHiddenElements(prev => [...prev, elementId]);
+
+    // Clear bricks after animation
+    setTimeout(() => {
+      setFallingBricks(prev => prev.filter(brick => !brick.id.startsWith(elementId)));
+    }, 2000);
+  };
+
+  const handleCodeBlockDragEnd = (event, info) => {
+    // Get current position
+    const currentX = info.point.x;
+    const currentY = info.point.y;
+
+    // Create falling effect only for code block
+    createFallingBricks('code', currentX - 150, currentY - 100, 300, 200);
+
+    // Reset position after a delay
+    setTimeout(() => {
+      controlsCode.start({ x: 0, y: 0 });
+      setHiddenElements(prev => prev.filter(id => id !== 'code'));
+    }, 2000);
+  };
+
+  const resetPositions = () => {
+    controls1.start({ x: 0, y: 0 });
+    controls2.start({ x: 0, y: 0 });
+    controls3.start({ x: 0, y: 0 });
+    controlsCode.start({ x: 0, y: 0 });
+    setIsDoubleClicked(false);
+    setHiddenElements([]);
+    setFallingBricks([]);
+  };
+
   const socialLinks = [
     { icon: <FaGithub />, url: process.env.REACT_APP_GITHUB, label: 'GitHub' },
     { icon: <FaLinkedin />, url: process.env.REACT_APP_LINKEDIN, label: 'LinkedIn' },
@@ -104,10 +169,69 @@ Now I’m building DropIQ and an AI-focused agency while learning agentic AI, RA
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.4, duration: 1 }}
         >
-          <div className="geometric-shape shape-1"></div>
-          <div className="geometric-shape shape-2"></div>
-          <div className="geometric-shape shape-3"></div>
-          <div className="code-block">
+          {!isDoubleClicked && (
+            <motion.div 
+              className="drag-hint"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 0.5 }}
+            >
+              <span className="hint-text">[ DOUBLE CLICK AND DRAG ]</span>
+            </motion.div>
+          )}
+
+          <motion.div 
+            className="geometric-shape shape-1"
+            drag={isDoubleClicked}
+            dragConstraints={{ left: -250, right: 250, top: -200, bottom: 200 }}
+            dragElastic={0.2}
+            dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
+            whileDrag={{ scale: 1.05, cursor: 'grabbing', zIndex: 50 }}
+            whileHover={isDoubleClicked ? { cursor: 'grab' } : {}}
+            onDoubleClick={handleDoubleClick}
+            animate={controls1}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          />
+          
+          <motion.div 
+            className="geometric-shape shape-2"
+            drag={isDoubleClicked}
+            dragConstraints={{ left: -250, right: 250, top: -200, bottom: 200 }}
+            dragElastic={0.2}
+            dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
+            whileDrag={{ scale: 1.05, cursor: 'grabbing', zIndex: 50 }}
+            whileHover={isDoubleClicked ? { cursor: 'grab' } : {}}
+            onDoubleClick={handleDoubleClick}
+            animate={controls2}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          />
+          
+          <motion.div 
+            className="geometric-shape shape-3"
+            drag={isDoubleClicked}
+            dragConstraints={{ left: -250, right: 250, top: -200, bottom: 200 }}
+            dragElastic={0.2}
+            dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
+            whileDrag={{ scale: 1.05, cursor: 'grabbing', zIndex: 50 }}
+            whileHover={isDoubleClicked ? { cursor: 'grab' } : {}}
+            onDoubleClick={handleDoubleClick}
+            animate={controls3}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          />
+
+          <motion.div 
+            className="code-block"
+            drag={isDoubleClicked}
+            dragConstraints={false}
+            dragElastic={0}
+            whileDrag={{ scale: 1.05, cursor: 'grabbing', zIndex: 50 }}
+            whileHover={isDoubleClicked ? { cursor: 'grab' } : {}}
+            onDoubleClick={handleDoubleClick}
+            onDragEnd={handleCodeBlockDragEnd}
+            animate={controlsCode}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            style={{ opacity: hiddenElements.includes('code') ? 0 : 1 }}
+          >
             <span className="code-line">
               <span className="keyword">const</span> developer = {'{'}
             </span>
@@ -121,7 +245,50 @@ Now I’m building DropIQ and an AI-focused agency while learning agentic AI, RA
               passion: <span className="string">"Try-Learn-Refine"</span>
             </span>
             <span className="code-line">{'}'}</span>
-          </div>
+          </motion.div>
+
+          {isDoubleClicked && (
+            <motion.button
+              className="reset-btn"
+              onClick={resetPositions}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <FaUndo /> Reset
+            </motion.button>
+          )}
+
+          {/* Falling Bricks */}
+          {fallingBricks.map((brick) => (
+            <motion.div
+              key={brick.id}
+              className="falling-brick"
+              initial={{ 
+                x: brick.x, 
+                y: brick.y, 
+                opacity: 1, 
+                rotate: 0,
+                scale: 1
+              }}
+              animate={{ 
+                y: 800, 
+                opacity: 0, 
+                rotate: brick.rotation,
+                scale: 0.5
+              }}
+              transition={{ 
+                duration: 1.5, 
+                delay: brick.delay,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
+              style={{
+                width: brick.size,
+                height: brick.size,
+              }}
+            />
+          ))}
         </motion.div>
       </div>
 

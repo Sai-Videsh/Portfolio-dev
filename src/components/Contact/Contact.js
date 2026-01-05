@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane, FaDownload } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 import './Contact.css';
 
 const Contact = () => {
@@ -9,55 +9,6 @@ const Contact = () => {
     triggerOnce: true,
     threshold: 0.2,
   });
-
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
-
-  const [formStatus, setFormStatus] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setFormStatus('');
-
-    try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/contact`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (data.success) {
-        setFormStatus('✅ ' + data.message);
-        setFormData({ name: '', email: '', subject: '', message: '' });
-      } else {
-        setFormStatus('❌ ' + data.message);
-      }
-    } catch (error) {
-      console.error('Error sending message:', error);
-      // setFormStatus('❌ Failed to send message. Please try emailing directly at saividesh29@gmail.com');
-      setFormStatus('Sorry, backend is not deployed yet. Reach me out directly at saividesh29@gmail.com');
-    } finally {
-      setIsSubmitting(false);
-      setTimeout(() => setFormStatus(''), 5000);
-    }
-  };
 
   const contactInfo = [
     {
@@ -119,111 +70,37 @@ const Contact = () => {
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
         >
-          <motion.div className="contact-info" variants={itemVariants}>
-            <motion.div
-              className="contact-intro glass-card"
-              whileHover={{ scale: 1.02 }}
-            >
-              <h3 className="gradient-text">Let's Work Together</h3>
-              <p>
-                I'm always open to discussing new projects, creative ideas, or
-                opportunities to be part of your vision. Feel free to reach out!
-              </p>
-            </motion.div>
-
-            <div className="contact-details">
-              {contactInfo.map((info, index) => (
-                <motion.a
-                  key={info.title}
-                  href={info.link}
-                  target={info.title === 'Location' ? '_blank' : undefined}
-                  rel={info.title === 'Location' ? 'noopener noreferrer' : undefined}
-                  className="contact-item glass-card"
-                  variants={itemVariants}
-                  whileHover={{ scale: 1.05, x: 10 }}
-                >
-                  <div className="contact-icon">{info.icon}</div>
-                  <div className="contact-text">
-                    <h4>{info.title}</h4>
-                    <p>{info.value}</p>
-                  </div>
-                </motion.a>
-              ))}
-            </div>
+          <motion.div
+            className="contact-intro glass-card"
+            variants={itemVariants}
+            whileHover={{ scale: 1.02 }}
+          >
+            <h3 className="gradient-text">Let's Work Together</h3>
+            <p>
+              I'm always open to discussing new projects, creative ideas, or
+              opportunities to be part of your vision. Feel free to reach out!
+            </p>
           </motion.div>
 
-          <motion.div className="contact-form-container" variants={itemVariants}>
-            <form className="contact-form glass-card" onSubmit={handleSubmit}>
-              <div className="form-group">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your Name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="form-input"
-                />
-              </div>
-
-              <div className="form-group">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Your Email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="form-input"
-                />
-              </div>
-
-              <div className="form-group">
-                <input
-                  type="text"
-                  name="subject"
-                  placeholder="Subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="form-input"
-                />
-              </div>
-
-              <div className="form-group">
-                <textarea
-                  name="message"
-                  placeholder="Your Message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows="6"
-                  className="form-input"
-                />
-              </div>
-
-              <motion.button
-                type="submit"
-                className="btn-primary submit-btn"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                disabled={isSubmitting}
+          <div className="contact-details">
+            {contactInfo.map((info, index) => (
+              <motion.a
+                key={info.title}
+                href={info.link}
+                target={info.title === 'Location' ? '_blank' : undefined}
+                rel={info.title === 'Location' ? 'noopener noreferrer' : undefined}
+                className="contact-item glass-card"
+                variants={itemVariants}
+                whileHover={{ scale: 1.05, y: -10 }}
               >
-                <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
-                <FaPaperPlane />
-              </motion.button>
-
-              {formStatus && (
-                <motion.div
-                  className="form-status"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                >
-                  {formStatus}
-                </motion.div>
-              )}
-            </form>
-          </motion.div>
+                <div className="contact-icon">{info.icon}</div>
+                <div className="contact-text">
+                  <h4>{info.title}</h4>
+                  <p>{info.value}</p>
+                </div>
+              </motion.a>
+            ))}
+          </div>
         </motion.div>
 
         <motion.footer
