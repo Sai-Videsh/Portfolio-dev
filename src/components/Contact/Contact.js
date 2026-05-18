@@ -77,7 +77,7 @@ const Contact = () => {
           >
             <h3 className="gradient-text">Let's Work Together</h3>
             <p>
-              I'm always open to discussing new projects, creative ideas, or
+              I'm always open to discuss new projects, creative ideas, or
               opportunities to be part of your vision. Feel free to reach out!
             </p>
           </motion.div>
@@ -109,8 +109,8 @@ const Contact = () => {
           animate={inView ? { opacity: 1 } : {}}
           transition={{ delay: 0.8, duration: 0.6 }}
         >
-          <p>&copy; 2025 Sai Videsh. All rights reserved.</p>
-          <p className="gradient-text">Built with curiosity and caffeine</p>
+          <p>&copy; 2025 Sai Videsh. All rights reserved</p>
+          <p className="gradient-text">Built only with my laptop..</p>
         </motion.footer>
       </div>
     </section>

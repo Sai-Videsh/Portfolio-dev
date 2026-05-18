@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import {
@@ -47,51 +47,53 @@ const Skills = () => {
     threshold: 0.1,
   });
 
+  const [viewMode, setViewMode] = useState('sphere'); // 'sphere' | 'categories'
+
   const allItems = [
     // Programming Languages
-    { name: 'C', icon: <SiC />, color: '#A8B9CC' },
-    { name: 'C++', icon: <SiCplusplus />, color: '#00599C' },
-    { name: 'Java', icon: <FaJava />, color: '#007396' },
-    { name: 'Python', icon: <FaPython />, color: '#3776AB' },
-    { name: 'JavaScript', icon: <FaJs />, color: '#F7DF1E' },
+    { name: 'C', icon: <SiC />, color: '#A8B9CC', category: 'Languages' },
+    { name: 'C++', icon: <SiCplusplus />, color: '#00599C', category: 'Languages' },
+    { name: 'Java', icon: <FaJava />, color: '#007396', category: 'Languages' },
+    { name: 'Python', icon: <FaPython />, color: '#3776AB', category: 'Languages' },
+    { name: 'JavaScript', icon: <FaJs />, color: '#F7DF1E', category: 'Languages' },
     
     // Web Technologies
-    { name: 'HTML5', icon: <FaHtml5 />, color: '#E34F26' },
-    { name: 'CSS3', icon: <FaCss3 />, color: '#1572B6' },
-    { name: 'React', icon: <FaReact />, color: '#61DAFB' },
-    { name: 'Node.js', icon: <FaNode />, color: '#339933' },
-    { name: 'Express', icon: <SiExpress />, color: '#FFFFFF' },
-    { name: 'Tailwind CSS', icon: <SiTailwindcss />, color: '#06B6D4' },
+    { name: 'HTML5', icon: <FaHtml5 />, color: '#E34F26', category: 'Web Development' },
+    { name: 'CSS3', icon: <FaCss3 />, color: '#1572B6', category: 'Web Development' },
+    { name: 'React', icon: <FaReact />, color: '#61DAFB', category: 'Web Development' },
+    { name: 'Node.js', icon: <FaNode />, color: '#339933', category: 'Web Development' },
+    { name: 'Express', icon: <SiExpress />, color: '#FFFFFF', category: 'Web Development' },
+    { name: 'Tailwind CSS', icon: <SiTailwindcss />, color: '#06B6D4', category: 'Web Development' },
     
     // Databases
-    { name: 'MongoDB', icon: <SiMongodb />, color: '#47A248' },
-    { name: 'SQL', icon: <FaDatabase />, color: '#4479A1' },
-    { name: 'PostgreSQL', icon: <SiPostgresql />, color: '#336791' },
+    { name: 'MongoDB', icon: <SiMongodb />, color: '#47A248', category: 'Databases' },
+    { name: 'SQL', icon: <FaDatabase />, color: '#4479A1', category: 'Databases' },
+    { name: 'PostgreSQL', icon: <SiPostgresql />, color: '#336791', category: 'Databases' },
     
     // AI/ML & New requested skills
-    { name: 'Machine Learning', icon: <FaBrain />, color: '#FF6B6B' },
-    { name: 'OpenCV', icon: <SiOpencv />, color: '#5C3EE8' },
-    { name: 'PyTorch', icon: <SiPytorch />, color: '#EE4C2C' },
-    { name: 'TensorFlow', icon: <SiTensorflow />, color: '#FF6F00' },
-    { name: 'Hugging Face', icon: <span>🤗</span>, color: '#FFD21E' },
-    { name: 'NumPy', icon: <SiNumpy />, color: '#013243' },
-    { name: 'pandas', icon: <SiPandas />, color: '#150458' },
+    { name: 'Machine Learning', icon: <FaBrain />, color: '#FF6B6B', category: 'AI & ML' },
+    { name: 'OpenCV', icon: <SiOpencv />, color: '#5C3EE8', category: 'AI & ML' },
+    { name: 'PyTorch', icon: <SiPytorch />, color: '#EE4C2C', category: 'AI & ML' },
+    { name: 'TensorFlow', icon: <SiTensorflow />, color: '#FF6F00', category: 'AI & ML' },
+    { name: 'Hugging Face', icon: <span>🤗</span>, color: '#FFD21E', category: 'AI & ML' },
+    { name: 'NumPy', icon: <SiNumpy />, color: '#013243', category: 'AI & ML' },
+    { name: 'pandas', icon: <SiPandas />, color: '#150458', category: 'AI & ML' },
 
     // Soft Skills
-    { name: 'Leadership & Comm', icon: <FaUsers />, color: '#FFD700' },
-    { name: 'Debugging', icon: <FaBug />, color: '#DC143C' },
+    { name: 'Leadership & Comm', icon: <FaUsers />, color: '#FFD700', category: 'Soft Skills' },
+    { name: 'Debugging', icon: <FaBug />, color: '#DC143C', category: 'Soft Skills' },
 
     // Tools
-    { name: 'VS Code', icon: <SiVisualstudiocode />, color: '#007ACC' },
-    { name: 'Git', icon: <FaGitAlt />, color: '#F05032' },
-    { name: 'GitHub', icon: <FaGithub />, color: '#FFFFFF' },
-    { name: 'Postman', icon: <SiPostman />, color: '#FF6C37' },
-    { name: 'Canva', icon: <SiCanva />, color: '#00C4CC' },
-    { name: 'Notion', icon: <SiNotion />, color: '#FFFFFF' },
-    { name: 'Vercel', icon: <SiVercel />, color: '#FFFFFF' },
-    { name: 'Render', icon: <SiRender />, color: '#46E3B7' },
-    { name: 'Linux', icon: <FaLinux />, color: '#FCC624' },
-    { name: 'Kaggle', icon: <SiKaggle />, color: '#20BEFF' }
+    { name: 'VS Code', icon: <SiVisualstudiocode />, color: '#007ACC', category: 'Tools & Software' },
+    { name: 'Git', icon: <FaGitAlt />, color: '#F05032', category: 'Tools & Software' },
+    { name: 'GitHub', icon: <FaGithub />, color: '#FFFFFF', category: 'Tools & Software' },
+    { name: 'Postman', icon: <SiPostman />, color: '#FF6C37', category: 'Tools & Software' },
+    { name: 'Canva', icon: <SiCanva />, color: '#00C4CC', category: 'Tools & Software' },
+    { name: 'Notion', icon: <SiNotion />, color: '#FFFFFF', category: 'Tools & Software' },
+    { name: 'Vercel', icon: <SiVercel />, color: '#FFFFFF', category: 'Tools & Software' },
+    { name: 'Render', icon: <SiRender />, color: '#46E3B7', category: 'Tools & Software' },
+    { name: 'Linux', icon: <FaLinux />, color: '#FCC624', category: 'Tools & Software' },
+    { name: 'Kaggle', icon: <SiKaggle />, color: '#20BEFF', category: 'Tools & Software' }
   ];
 
   return (
@@ -108,12 +110,26 @@ const Skills = () => {
         </motion.h2>
 
         <motion.div
+          className="skills-toggle-container"
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <button 
+            className="skills-toggle-btn"
+            onClick={() => setViewMode(viewMode === 'sphere' ? 'categories' : 'sphere')}
+          >
+            {viewMode === 'sphere' ? 'Categorise Skills' : 'Back to Sphere'}
+          </button>
+        </motion.div>
+
+        <motion.div
           ref={ref}
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 1 }}
         >
-          <SkillSphere items={allItems} />
+          <SkillSphere items={allItems} viewMode={viewMode} />
         </motion.div>
 
         <motion.div

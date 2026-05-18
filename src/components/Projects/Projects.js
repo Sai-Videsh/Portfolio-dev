@@ -18,11 +18,11 @@ const Projects = () => {
       title: 'DropIQ',
       tagline: 'Unified E-Commerce Search Engine',
       description: 'Built a unified scraper pipeline across 5+ e-commerce sites using rotating proxies, reverse APIs, headless browsers, and HTML parsing, achieving 92% product-page coverage.',
-      image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop',
+      image: '/Screenshot%202026-05-18%20204505.png',
       tags: ['Next', 'Web Scraping', 'APIs'],
       category: 'fullstack',
       github: 'https://github.com/Sai-Videsh/DropiQ',
-      liveLink: 'https://dropiq01.vercel.app/',
+      liveLink: 'https://dropiq-nine.vercel.app/',
     },
     {
       id: 2,
@@ -75,9 +75,39 @@ const Projects = () => {
       category: 'ml',
       github: 'https://github.com/Sai-Videsh/ai-contract---proposal',
     },
+    {
+      id: 7,
+      title: 'Narayana School Landing Page',
+      tagline: 'UI/UX & Frontend Design',
+      description: 'A modern, professional landing page designed for Narayana School Chittoor branch.',
+      image: '/image.png',
+      tags: ['UI/UX', 'Landing Page', 'Frontend'],
+      category: 'uiux',
+      github: 'https://github.com/Sai-Videsh/Narayana_School_Ctr',
+    },
+    {
+      id: 8,
+      title: 'Tabun Chai Landing Page',
+      tagline: 'Cafe Website Design',
+      description: 'An elegant landing page for Tabun Chai, a cafe near Tirupathi road focusing on user experience.',
+      image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&h=600&fit=crop',
+      tags: ['UI/UX', 'Cafe', 'Frontend'],
+      category: 'uiux',
+      github: 'https://github.com/Sai-Videsh/cl-1',
+    },
+    {
+      id: 9,
+      title: 'Visio-Language-Model',
+      tagline: 'Computer Vision Research',
+      description: 'A research project using models like BLIP and binary segmentation to analyze road pictures from the IIT H dataset using binary masks.',
+      image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=600&fit=crop',
+      tags: ['Python', 'BLIP', 'Computer Vision'],
+      category: 'ml',
+      github: 'https://github.com/Sai-Videsh/Visio-Language-Model-_-CV',
+    },
   ];
 
-  const categories = ['all', 'fullstack', 'ml'];
+  const categories = ['fullstack', 'ml', 'uiux'];
 
   const filteredProjects = filter === 'all' 
     ? projects 
@@ -129,7 +159,7 @@ const Projects = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              {category.charAt(0).toUpperCase() + category.slice(1)}
+              {category === 'uiux' ? 'UI/UX' : (category === 'ml' ? 'ML' : category.charAt(0).toUpperCase() + category.slice(1))}
             </motion.button>
           ))}
         </motion.div>
