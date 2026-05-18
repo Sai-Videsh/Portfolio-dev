@@ -120,9 +120,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            I blend experience across coding, design, content, and early product building, giving me a practical, multi-skill foundation.
-Now I’m building DropIQ and an AI-focused agency while learning agentic AI, RAG, and rapid MVP development.
- </motion.p>
+            I solve real world problems using tech. Explored many things, got decent experience in it. Looking for more opportunities. Love to hum, play carroms and a sip of coffee while coding.          </motion.p>
 
           <motion.div
             className="hero-buttons"

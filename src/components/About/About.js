@@ -72,7 +72,7 @@ const About = () => {
             >
               <h3 className="gradient-text">Who I Am</h3>
               <p>
-                I am Sai Videsh, someone who has explored many paths like coding, design, content, freelancing, and early startup attempts, picking up skills quickly and learning through direct trials. I’m not shaped by a single track but by the range of things I’ve tried, giving me a broad, practical understanding and a direction which I’m now sharpening it into mastery.
+               I am an IIIT student, loves to solve new problems with suitable technical solutions. jack of many trades, done a couple of  internships, have experience in building real projects and shipping them, attended some hackathons, done open source contributions and certifications. Also a technical content creator.
               </p>
               
             </motion.div>
@@ -84,9 +84,10 @@ const About = () => {
             >
               <h3 className="gradient-text">What I Do</h3>
              <p>
-                 I'm currently building DropIQ, a unified search layer that collects product data from multiple e-commerce stores and presents it in one place. 
-                 I'm also running an Agency in which me with my team where We build AI-powered MVPs that learn from users and turn ideas into investor-ready products. 
-               Along with this, I am learning agentic AI, retrieval-augmented generation, and practical AI toolchains so I can build systems that automate tasks and speed up development.
+               I am an freelancer, running an agency along with my friends where We build AI solutions for businesses to make it more efficient and productive, mainly for local businesses who are not online.
+               And also build some micro saas apps that solve a very small or a specific problem. Currently working on one.
+              Also, a Content creator sharing my journey and stuffs related to AI and Business, mainly for students.
+              Looking for more collaborations.
               </p>
             </motion.div>
           </motion.div>
@@ -100,13 +101,7 @@ const About = () => {
               <div className="stat-label">Projects Completed</div>
             </motion.div>
 
-            <motion.div
-              className="stat-card glass-card"
-              whileHover={{ scale: 1.05, rotate: -2 }}
-            >
-              <div className="stat-number gradient-text">7.8</div>
-              <div className="stat-label">CGPA</div>
-            </motion.div>
+
 
             <motion.div
               className="stat-card glass-card"

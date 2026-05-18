@@ -15,8 +15,8 @@
     90deg,
     transparent,
     transparent 45px,
-    rgba(255, 0, 0, 0.02) 45px,
-    rgba(255, 0, 0, 0.02) 46px
+    rgba(0, 255, 0, 0.02) 45px,
+    rgba(0, 255, 0, 0.02) 46px
   );
   animation: moveHorizontalSlow 18s linear infinite;
   z-index: 0;
@@ -81,7 +81,7 @@
 .stat-icon {
   font-size: 3.5rem;
   margin-bottom: 20px;
-  filter: drop-shadow(0 0 15px currentColor);
+  filter: drop-shadow(0 0 6px currentColor);
   animation: glow-pulse 3s ease-in-out infinite;
 }
 

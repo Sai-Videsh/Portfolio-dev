@@ -13,8 +13,8 @@
   width: 200%;
   height: 200%;
   background-image: 
-    repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(255, 0, 0, 0.02) 30px, rgba(255, 0, 0, 0.02) 31px),
-    repeating-linear-gradient(-45deg, transparent, transparent 30px, rgba(255, 0, 0, 0.02) 30px, rgba(255, 0, 0, 0.02) 31px);
+    repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(0, 255, 0, 0.02) 30px, rgba(0, 255, 0, 0.02) 31px),
+    repeating-linear-gradient(-45deg, transparent, transparent 30px, rgba(0, 255, 0, 0.02) 30px, rgba(0, 255, 0, 0.02) 31px);
   animation: moveCrossHatch 25s linear infinite;
   z-index: 0;
   pointer-events: none;
@@ -80,7 +80,7 @@
   letter-spacing: 5px;
   position: relative;
   display: inline-block;
-  text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
 }
 
 .current-project-name::before {
@@ -175,7 +175,7 @@
   align-items: center;
   gap: 10px;
   padding: 12px 25px;
-  background: rgba(255, 0, 0, 0.05);
+  background: rgba(0, 255, 0, 0.05);
   border: 1px solid var(--accent-primary);
   color: var(--accent-primary);
   font-family: 'Space Mono', monospace;
@@ -186,12 +186,12 @@
 
 @keyframes statusGlow {
   0%, 100% {
-    box-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.3);
   }
   50% {
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.8),
-                0 0 30px rgba(255, 0, 0, 0.5),
-                inset 0 0 15px rgba(255, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.8),
+                0 0 30px rgba(0, 255, 0, 0.5),
+                inset 0 0 15px rgba(0, 255, 0, 0.1);
   }
 }
 
@@ -200,7 +200,7 @@
   height: 10px;
   background: var(--accent-primary);
   animation: pulse 2s ease-in-out infinite;
-  box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
 }
 
 @keyframes pulse {

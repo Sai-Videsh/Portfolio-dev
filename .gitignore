@@ -20,7 +20,7 @@
 /server/.env
 
 # sensitive files
-/public/resume.pdf
+# /public/resume.pdf
 /public/certificates/*
 # *.pdf
 

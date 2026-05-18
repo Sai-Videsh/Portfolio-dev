@@ -15,8 +15,8 @@
     90deg,
     transparent,
     transparent 40px,
-    rgba(255, 0, 0, 0.02) 40px,
-    rgba(255, 0, 0, 0.02) 41px
+    rgba(0, 255, 0, 0.02) 40px,
+    rgba(0, 255, 0, 0.02) 41px
   );
   animation: moveHorizontal 20s linear infinite;
   z-index: 0;
@@ -64,7 +64,7 @@
   font-size: 5rem;
   color: var(--accent-primary);
   animation: float-slow 5s ease-in-out infinite;
-  filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.4));
+  filter: drop-shadow(0 0 20px rgba(0, 255, 0, 0.4));
 }
 
 .linkedin-recommendations h3 {

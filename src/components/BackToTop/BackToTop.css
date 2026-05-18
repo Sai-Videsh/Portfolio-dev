@@ -16,7 +16,7 @@
   z-index: 1000;
   font-family: 'Space Mono', monospace;
   transition: all 0.3s ease;
-  box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
 }
 
 .back-to-top::before {
@@ -42,7 +42,7 @@
 }
 
 .back-to-top:hover {
-  box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+  box-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
 }
 
 .back-to-top svg {

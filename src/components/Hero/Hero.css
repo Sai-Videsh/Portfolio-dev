@@ -18,8 +18,8 @@
     45deg,
     transparent,
     transparent 50px,
-    rgba(255, 0, 0, 0.03) 50px,
-    rgba(255, 0, 0, 0.03) 51px
+    rgba(0, 255, 0, 0.03) 50px,
+    rgba(0, 255, 0, 0.03) 51px
   );
   animation: moveGrid 20s linear infinite;
   z-index: 0;
@@ -116,7 +116,7 @@
   border-color: var(--accent-primary);
   color: var(--accent-primary);
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 255, 0, 0.2);
 }
 
 .social-links {
@@ -143,7 +143,7 @@
 .social-link:hover {
   background: var(--accent-primary);
   border-color: var(--accent-primary);
-  box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
   color: #000000;
 }
 
@@ -192,7 +192,7 @@
   height: 300px;
   top: 0;
   right: 0;
-  background: linear-gradient(135deg, rgba(255, 0, 0, 0.05), transparent);
+  background: linear-gradient(135deg, rgba(0, 255, 0, 0.05), transparent);
   animation: float 6s ease-in-out infinite;
 }
 
@@ -201,7 +201,7 @@
   height: 200px;
   bottom: 50px;
   left: 0;
-  background: linear-gradient(135deg, rgba(255, 0, 0, 0.05), transparent);
+  background: linear-gradient(135deg, rgba(0, 255, 0, 0.05), transparent);
   animation: float 8s ease-in-out infinite;
   animation-delay: 1s;
 }
@@ -212,7 +212,7 @@
   top: 100px;
   left: 100px;
   border-radius: 0;
-  background: linear-gradient(135deg, rgba(255, 0, 0, 0.03), transparent);
+  background: linear-gradient(135deg, rgba(0, 255, 0, 0.03), transparent);
   animation: float 7s ease-in-out infinite;
   animation-delay: 2s;
 }
@@ -325,16 +325,16 @@
 .reset-btn:hover {
   background: var(--accent-primary);
   color: #000000;
-  box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
 }
 
 .falling-brick {
   position: fixed;
-  background: rgba(255, 0, 0, 0.6);
+  background: rgba(0, 255, 0, 0.6);
   border: 1px solid var(--accent-primary);
   pointer-events: none;
   z-index: 1000;
-  box-shadow: 0 2px 8px rgba(255, 0, 0, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 255, 0, 0.3);
 }
 
 .scroll-indicator {

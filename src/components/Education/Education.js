@@ -15,9 +15,8 @@ const Education = () => {
       id: 1,
       degree: 'B.Tech in Computer Science & Engineering',
       institution: 'IIIT Kurnool',
-      location: 'Bangalore, India',
+      location: 'Kurnool, Andhra Pradesh',
       period: '2023 - 2028',
-      gpa: '7.86/10.0',
       highlights: [
         'Specialization: Computer Science',
         'Relevant Coursework: Machine Learning, OOPS, Data Structures, Algorithms, DBMS',
@@ -30,7 +29,6 @@ const Education = () => {
       institution: 'Narayana PU College',
       location: 'Bangalore, India',
       period: '2021 - 2023',
-      gpa: '88.6%',
       highlights: [
         'PCMC (Physics, Chemistry, Mathematics, Computer Science)',
         'Strong foundation in Mathematics and Computer Science',
@@ -102,9 +100,7 @@ const Education = () => {
                   <FaMapMarkerAlt /> {edu.location}
                 </div>
               </div>
-              {edu.gpa && (
-                <div className="education-gpa">GPA: {edu.gpa}</div>
-              )}
+
               <ul className="education-highlights">
                 {edu.highlights.map((item, idx) => (
                   <li key={idx}>{item}</li>

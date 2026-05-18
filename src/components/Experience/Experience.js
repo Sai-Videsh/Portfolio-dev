@@ -21,6 +21,16 @@ const Experience = () => {
 
   const experiences = [
     {
+      id: 4,
+      title: 'AI/ML Intern',
+      company: 'Syntropy',
+      period: 'Present',
+      description: [
+        'Currently working as an AI/ML intern, focusing on RAG models.',
+        'Building data extraction pipelines using lightweight models and optimizing data workflows.',
+      ],
+    },
+    {
       id: 1,
       title: 'Technical Lead',
       company: 'Airath Innovations Pvt. Ltd.',

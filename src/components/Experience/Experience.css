@@ -15,8 +15,8 @@
     0deg,
     transparent,
     transparent 40px,
-    rgba(255, 0, 0, 0.03) 40px,
-    rgba(255, 0, 0, 0.03) 41px
+    rgba(0, 255, 0, 0.03) 40px,
+    rgba(0, 255, 0, 0.03) 41px
   );
   animation: moveHorizontal 15s linear infinite;
   z-index: 0;
@@ -185,7 +185,7 @@
 .view-certificate-btn:hover {
   background: var(--accent-primary);
   color: #000000;
-  box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
 }
 
 .view-certificate-btn svg {
@@ -213,7 +213,7 @@
   padding: 40px;
   max-width: 500px;
   width: 90%;
-  box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+  box-shadow: 0 0 30px rgba(0, 255, 0, 0.3);
   position: relative;
 }
 
@@ -261,7 +261,7 @@
 .popup-close-btn:hover {
   background: var(--accent-primary);
   color: #000000;
-  box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
 }
 
 @media (max-width: 768px) {
