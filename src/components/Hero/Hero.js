@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
-import { FaGithub, FaLinkedin, FaTwitter, FaArrowDown, FaDownload, FaUndo } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaArrowDown, FaDownload, FaUndo } from 'react-icons/fa';
 import { SiLeetcode } from 'react-icons/si';
 import './Hero.css';
 

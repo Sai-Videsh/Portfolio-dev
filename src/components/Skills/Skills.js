@@ -29,7 +29,6 @@ import {
   SiVercel,
   SiRender,
   SiPostgresql,
-  SiMysql,
   SiKaggle,
   SiPostman,
   SiOpencv,

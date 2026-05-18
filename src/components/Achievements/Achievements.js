@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FaTrophy, FaCertificate, FaStar, FaMedal } from 'react-icons/fa';
+import { FaTrophy, FaStar } from 'react-icons/fa';
 import './Achievements.css';
 
 const Achievements = () => {
