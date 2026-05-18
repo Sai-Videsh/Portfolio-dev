@@ -269,11 +269,11 @@
 }
 
 .keyword {
-  color: #ff79c6;
+  color: #8be9fd; /* Dracula Cyan */
 }
 
 .string {
-  color: #50fa7b;
+  color: #ff79c6; /* Dracula Pink */
 }
 
 .drag-hint {

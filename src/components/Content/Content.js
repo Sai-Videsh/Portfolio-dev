@@ -16,7 +16,7 @@ const Content = () => {
       title: 'Technical Blog',
       description: 'Sharing insights on New Technological inventions, science behind existing ones and news related to entrepreneurship',
       icon: <FaBlog />,
-    //   link: '#', // Add your blog URL
+      link: '#',
       count: 'Coming Soon',
     },
     {
@@ -24,8 +24,8 @@ const Content = () => {
       title: 'YouTube Channel',
       description: 'Simple takes on business, finance, productivity science, and practical learning, Mainly for students exploring multiple things',
       icon: <FaYoutube />,
-    //   link: '#', // Add your YouTube channel URL
-      count: 'Coming Soon',
+      link: 'https://www.youtube.com/@Sai-Videsh',
+      count: 'Visit Channel',
     },
   ];
 
@@ -72,11 +72,16 @@ const Content = () => {
             <motion.a
               key={item.id}
               href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="content-card glass-card"
+              onClick={(e) => {
+                if (!item.link || item.link === '#') {
+                  e.preventDefault();
+                }
+              }}
+              target={item.link && item.link !== '#' ? "_blank" : undefined}
+              rel={item.link && item.link !== '#' ? "noopener noreferrer" : undefined}
+              className={`content-card glass-card ${item.link === '#' ? 'disabled' : ''}`}
               variants={itemVariants}
-              whileHover={{ scale: 1.05, y: -5 }}
+              whileHover={item.link && item.link !== '#' ? { scale: 1.05, y: -5 } : {}}
             >
               <div className="content-icon">{item.icon}</div>
               <h3 className="content-title">{item.title}</h3>

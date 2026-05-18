@@ -8,6 +8,7 @@ import Education from './components/Education/Education';
 import Skills from './components/Skills/Skills';
 
 import Projects from './components/Projects/Projects';
+import FreelanceTestimonials from './components/FreelanceTestimonials/FreelanceTestimonials';
 import Achievements from './components/Achievements/Achievements';
 import Content from './components/Content/Content';
 import Recommendations from './components/Recommendations/Recommendations';
@@ -58,6 +59,7 @@ function App() {
       <Skills />
 
       <Projects />
+      <FreelanceTestimonials />
       <Achievements />
       <Content />
       <Recommendations />

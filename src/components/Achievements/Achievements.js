@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FaTrophy, FaCertificate, FaStar, FaMedal } from 'react-icons/fa';
@@ -10,46 +10,58 @@ const Achievements = () => {
     threshold: 0.2,
   });
 
+  const [flippedCardId, setFlippedCardId] = useState(null);
+
+  const handleCardClick = (id) => {
+    if (window.innerWidth <= 768) {
+      setFlippedCardId(flippedCardId === id ? null : id);
+    }
+  };
+
   const certificates = [
     {
       id: 1,
-      title: 'Java Programming',
-      issuer: 'NPTEL',
+      title: 'C, Python & Linux',
+      issuer: 'Spoken Tutorial, IIT Bombay',
       date: '2024',
-      icon: <FaCertificate />,
-      link: `https://drive.google.com/file/d/${process.env.REACT_APP_CERT_ACHIEVEMENT_1}/view`,
+      brief: 'Mastered software programming fundamentals in C and Python combined with advanced Linux system administration.',
+      position: 'card1',
+      link: '#',
     },
     {
       id: 2,
-      title: 'Spoken Tutorial - IIT Bombay',
-      issuer: 'IIT Bombay',
+      title: 'Cloud Computing',
+      issuer: 'NPTEL',
       date: '2024',
-      icon: <FaCertificate />,
-      link: `https://drive.google.com/file/d/${process.env.REACT_APP_CERT_ACHIEVEMENT_2}/view`,
+      brief: 'Studied cloud infrastructure, virtualization, map-reduce architectures, and distributed systems.',
+      position: 'card2',
+      link: '#',
     },
     {
       id: 3,
-      title: 'Job Simulation - Deloitte',
-      issuer: 'Forage',
-      date: '2025',
-      icon: <FaCertificate />,
-      link: `https://drive.google.com/file/d/${process.env.REACT_APP_CERT_ACHIEVEMENT_3}/view`,
+      title: 'Front-End Development',
+      issuer: 'IBM SkillsBuild',
+      date: '2024',
+      brief: 'Completed intensive virtual internship specializing in responsive modern web architectures and UI/UX design.',
+      position: 'card3',
+      link: '#',
     },
-    // {
-    //   id: 4,
-    //   title: 'JavaScript Algorithms and Data Structures',
-    //   issuer: 'freeCodeCamp',
-    //   date: '2022',
-    //   icon: <FaCertificate />,
-    //   link: `https://drive.google.com/file/d/${process.env.REACT_APP_CERT_ACHIEVEMENT_4}/view`,
-    // },
+    {
+      id: 4,
+      title: 'Tech Job Simulations',
+      issuer: 'Deloitte & Tata (Forage)',
+      date: '2025',
+      brief: 'Executed technology consulting workflows, cloud migrations strategy, and designed dynamic data dashboards.',
+      position: 'card4',
+      link: '#',
+    },
   ];
 
   const achievements = [
     {
       id: 1,
       title: 'Open Source Contributor',
-      description: '10+ contributions to projects in IEEE SoC',
+      description: 'Contributions to some projects in IEEE SoC',
       icon: <FaStar />,
     },
     {
@@ -110,23 +122,41 @@ const Achievements = () => {
               <span className="terminal-bracket">{'['}</span> Certifications{' '}
               <span className="terminal-bracket">{']'}</span>
             </h3>
-            <div className="certificates-grid">
+            <div className="certificates-collage">
               {certificates.map((cert) => (
-                <motion.a
+                <motion.div
                   key={cert.id}
-                  href={cert.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="certificate-card glass-card"
+                  className={`collage-card glass-card ${cert.position} ${flippedCardId === cert.id ? 'flipped' : ''}`}
                   variants={itemVariants}
-                  whileHover={{ y: -5 }}
+                  onClick={() => handleCardClick(cert.id)}
                 >
-                  <div className="cert-icon">{cert.icon}</div>
-                  <h4 className="cert-title">{cert.title}</h4>
-                  <p className="cert-issuer">{cert.issuer}</p>
-                  <span className="cert-date">{cert.date}</span>
-                  <span className="view-cert">[ VIEW CERTIFICATE ]</span>
-                </motion.a>
+                  <div className="card-inner">
+                    <div className="card-front">
+                      <div className="cert-header">
+                        <h4 className="cert-title">{cert.title}</h4>
+                        <span className="cert-issuer">{cert.issuer}</span>
+                      </div>
+                      
+                      <div className="cert-body desktop-only">
+                        <p className="cert-brief">{cert.brief}</p>
+                      </div>
+
+                      <div className="cert-footer">
+                        <span className="cert-date">{cert.date}</span>
+                        <span className="cert-tap-hint mobile-only">[ Tap.. ]</span>
+                      </div>
+                    </div>
+
+                    <div className="card-back mobile-only">
+                      <div className="cert-body">
+                        <p className="cert-brief">{cert.brief}</p>
+                      </div>
+                      {/* <div className="cert-footer">
+                        <span className="cert-tap-hint">[ Tap to flip back ]</span>
+                      </div> */}
+                    </div>
+                  </div>
+                </motion.div>
               ))}
             </div>
           </div>
